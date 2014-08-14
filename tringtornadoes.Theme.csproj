@@ -128,6 +128,7 @@
     <Content Include="Styles\mixins\text-overflow.less" />
     <Content Include="Styles\mixins\vendor-prefixes.less" />
     <Content Include="Styles\modals.less" />
+    <Content Include="Styles\modern-business.css" />
     <Content Include="Styles\navbar.less" />
     <Content Include="Styles\navs.less" />
     <Content Include="Styles\normalize.less" />
