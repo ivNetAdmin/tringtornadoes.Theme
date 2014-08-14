@@ -1,12 +1,12 @@
-﻿
-@{
+﻿@{
     /* Global includes for the theme
     ***************************************************************/
 
     SetMeta("charset", "utf-8");
     SetMeta("X-UA-Compatible", "IE=edge,chrome=1");
     SetMeta("viewport", "width=device-width, initial-scale=1.0");
-    //Style.Include("site.css")
+    Style.Include("bootstrap.min.css");
+    Style.Include("site.min.css");
 
 
     /* Inserting some ad hoc shapes
@@ -18,5 +18,72 @@
 
 }
 
-      
-@Display(Model.Footer)
+
+<div class="container">
+    <div class="row">
+        
+        <h1>I'm Heading1 h1. <small>I'm secondary Heading1 h1</small></h1>
+        <h2>I'm Heading2 h2. <small>I'm secondary Heading2 h2</small></h2>
+        <h3>I'm Heading3 h3. <small>I'm secondary Heading3 h3</small></h3>
+        <h4>I'm Heading4 h4. <small>I'm secondary Heading4 h4</small></h4>
+        <h5>I'm Heading5 h5. <small>I'm secondary Heading5 h5</small></h5>
+        <h6>I'm Heading6 h6. <small>I'm secondary Heading1 h6</small></h6>
+        
+
+        <div class="col-md-3" style="background-color: #dedef8;box-shadow:
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+            <h4>First Column</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+
+        <div class="col-md-9" style="background-color: #dedef8;box-shadow:
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+            <h4>Second Column- Split into 4 boxes</h4>
+            <div class="row">
+                <div class="col-md-6" style="background-color: #B18904;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                    <p>
+                        Consectetur art party Tonx culpa semiotics. Pinterest
+                        assumenda minim organic quis.
+                    </p>
+                </div>
+                <div class="col-md-6" style="background-color: #B18904;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                    <p>
+                        sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6" style="background-color: #B18904;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                    <p>
+                        quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+                <div class="col-md-6" style="background-color: #B18904;
+               box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna
+                        aliqua. Ut enim ad minim.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            @Display(Model.Footer)
+        </div>
+    </div>
+</div>
