@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -19,6 +19,11 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation />
     <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,17 +67,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Styles\accordian.min.css" />
+    <Content Include="Styles\Web.config" />
     <Content Include="Web.config" />
     <Content Include="Scripts\Web.config" />
-    <Content Include="Styles\Web.config" />
     <Content Include="Content\Web.config" />
     <Content Include="Theme.txt" />
     <Content Include="Theme.png" />
     <Content Include="Placement.info" />
-    <Folder Include="Content" />
-    <Folder Include="Styles" />
-    <Folder Include="Scripts" />
-    <Folder Include="Views" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
@@ -83,6 +85,84 @@
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\.csscomb.json" />
+    <Content Include="Styles\.csslintrc" />
+    <Content Include="Styles\accordian.less" />
+    <Content Include="Styles\alerts.less" />
+    <Content Include="Styles\badges.less" />
+    <Content Include="Styles\bootstrap.less" />
+    <Content Include="Styles\breadcrumbs.less" />
+    <Content Include="Styles\button-groups.less" />
+    <Content Include="Styles\buttons.less" />
+    <Content Include="Styles\carousel.less" />
+    <Content Include="Styles\close.less" />
+    <Content Include="Styles\code.less" />
+    <Content Include="Styles\component-animations.less" />
+    <Content Include="Styles\dropdowns.less" />
+    <Content Include="Styles\forms.less" />
+    <Content Include="Styles\glyphicons.less" />
+    <Content Include="Styles\grid.less" />
+    <Content Include="Styles\input-groups.less" />
+    <Content Include="Styles\jumbotron.less" />
+    <Content Include="Styles\labels.less" />
+    <Content Include="Styles\list-group.less" />
+    <Content Include="Styles\media.less" />
+    <Content Include="Styles\mixins.less" />
+    <Content Include="Styles\mixins\alerts.less" />
+    <Content Include="Styles\mixins\background-variant.less" />
+    <Content Include="Styles\mixins\border-radius.less" />
+    <Content Include="Styles\mixins\buttons.less" />
+    <Content Include="Styles\mixins\center-block.less" />
+    <Content Include="Styles\mixins\clearfix.less" />
+    <Content Include="Styles\mixins\forms.less" />
+    <Content Include="Styles\mixins\gradients.less" />
+    <Content Include="Styles\mixins\grid-framework.less" />
+    <Content Include="Styles\mixins\grid.less" />
+    <Content Include="Styles\mixins\hide-text.less" />
+    <Content Include="Styles\mixins\image.less" />
+    <Content Include="Styles\mixins\labels.less" />
+    <Content Include="Styles\mixins\list-group.less" />
+    <Content Include="Styles\mixins\nav-divider.less" />
+    <Content Include="Styles\mixins\nav-vertical-align.less" />
+    <Content Include="Styles\mixins\opacity.less" />
+    <Content Include="Styles\mixins\pagination.less" />
+    <Content Include="Styles\mixins\panels.less" />
+    <Content Include="Styles\mixins\progress-bar.less" />
+    <Content Include="Styles\mixins\reset-filter.less" />
+    <Content Include="Styles\mixins\resize.less" />
+    <Content Include="Styles\mixins\responsive-visibility.less" />
+    <Content Include="Styles\mixins\size.less" />
+    <Content Include="Styles\mixins\tab-focus.less" />
+    <Content Include="Styles\mixins\table-row.less" />
+    <Content Include="Styles\mixins\text-emphasis.less" />
+    <Content Include="Styles\mixins\text-overflow.less" />
+    <Content Include="Styles\mixins\vendor-prefixes.less" />
+    <Content Include="Styles\modals.less" />
+    <Content Include="Styles\navbar.less" />
+    <Content Include="Styles\navs.less" />
+    <Content Include="Styles\normalize.less" />
+    <Content Include="Styles\pager.less" />
+    <Content Include="Styles\pagination.less" />
+    <Content Include="Styles\panels.less" />
+    <Content Include="Styles\popovers.less" />
+    <Content Include="Styles\print.less" />
+    <Content Include="Styles\progress-bars.less" />
+    <Content Include="Styles\responsive-embed.less" />
+    <Content Include="Styles\responsive-utilities.less" />
+    <Content Include="Styles\scaffolding.less" />
+    <Content Include="Styles\tables.less" />
+    <Content Include="Styles\theme.less" />
+    <Content Include="Styles\thumbnails.less" />
+    <Content Include="Styles\tooltip.less" />
+    <Content Include="Styles\type.less" />
+    <Content Include="Styles\utilities.less" />
+    <Content Include="Styles\variables.less" />
+    <Content Include="Styles\wells.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
