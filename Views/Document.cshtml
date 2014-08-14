@@ -4,14 +4,19 @@
 @{
     RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/modules/orchard.themes/Content/orchard.ico") });
 
-    //  Style.Include("font-awesome.min.css");
-    //  Style.Include("font-awesome-ie7.min.css").UseCondition("IE 7");
+    Style.Include("bootstrap.min.css");
+   
+    <!-- Custom Fonts -->
+    Style.Include("font-awesome.min.css");
+    Style.Include("font-awesome-ie7.min.css").UseCondition("IE 7");
 
+    Style.Include("site.min.css");
+    
     Script.Require("jQuery").AtHead();
-    Script.Include("bootstrap.min.js");
-    //  Script.Include("custom.js");
-    //  Script.Include("html5shiv.js").UseCondition("lt IE 9").AtHead();
-    //  Script.Include("respond.min.js").UseCondition("lt IE 9").AtHead();
+    Script.Include("bootstrap.min.js").AtBottom()
+    //Script.Include("custom.js");
+    Script.Include("html5shiv.js").UseCondition("lt IE 9").AtHead();
+    Script.Include("respond.min.js").UseCondition("lt IE 9").AtHead();
 
     string title = Convert.ToString(Model.Title);
     string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
