@@ -67,35 +67,16 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Styles\accordian.min.css" />
-    <Content Include="Styles\Web.config" />
-    <Content Include="Web.config" />
-    <Content Include="Scripts\Web.config" />
-    <Content Include="Content\Web.config" />
-    <Content Include="Theme.txt" />
-    <Content Include="Theme.png" />
-    <Content Include="Placement.info" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
-      <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
-      <Name>Orchard.Framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
-      <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
-      <Name>Orchard.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Layout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Styles\.csscomb.json" />
     <Content Include="Styles\.csslintrc" />
     <Content Include="Styles\accordian.less" />
+    <Content Include="Styles\accordian.min.css" />
     <Content Include="Styles\alerts.less" />
     <Content Include="Styles\badges.less" />
+    <Content Include="Styles\bootstrap.css" />
     <Content Include="Styles\bootstrap.less" />
+    <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Styles\breadcrumbs.less" />
     <Content Include="Styles\button-groups.less" />
     <Content Include="Styles\buttons.less" />
@@ -162,7 +143,33 @@
     <Content Include="Styles\type.less" />
     <Content Include="Styles\utilities.less" />
     <Content Include="Styles\variables.less" />
+    <Content Include="Styles\Web.config" />
     <Content Include="Styles\wells.less" />
+    <Content Include="Web.config" />
+    <Content Include="Scripts\Web.config" />
+    <Content Include="Content\Web.config" />
+    <Content Include="Theme.txt" />
+    <Content Include="Theme.png" />
+    <Content Include="Placement.info" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Orchard\Orchard.Framework.csproj">
+      <Project>{2D1D92BB-4555-4CBE-8D0E-63563D6CE4C6}</Project>
+      <Name>Orchard.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Orchard.Core.csproj">
+      <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
+      <Name>Orchard.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Document.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\bootstrap.css.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
