@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Styles\.csscomb.json" />
     <Content Include="Styles\.csslintrc" />

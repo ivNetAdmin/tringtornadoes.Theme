@@ -3,18 +3,14 @@
 @using Orchard.UI.Resources;
 @{
     RegisterLink(new LinkEntry { Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/modules/orchard.themes/Content/orchard.ico") });
-   
-    <!-- Custom Fonts -->
-    Style.Include("font-awesome.min.css").AtHead();
+
+    Style.Include("font-awesome.min.css");
     Style.Include("font-awesome-ie7.min.css").UseCondition("IE 7");
 
-    Script.Include("jquery-1.11.0.js").AtHead();
-    Script.Include("bootstrap.min.js");
-    //Script.Include("custom.js");
-   // Script.Include("html5shiv.js").UseCondition("lt IE 9").AtHead();
-    //Script.Include("respond.min.js").UseCondition("lt IE 9").AtHead();
-
-    string title = Convert.ToString(Model.Title);
+    Script.Require("jQuery").AtHead();
+    Script.Include("custom.js");
+    Script.Include("html5shiv.js").UseCondition("lt IE 9").AtHead();
+    Script.Include("respond.min.js").UseCondition("lt IE 9").AtHead(); string title = Convert.ToString(Model.Title);
     string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
     @* string classForPage = "static " + Html.ClassForPage();
         bool useFixedNav = WorkContext.SettingsEval(Constants.UseFixedNav);
@@ -45,13 +41,13 @@
     @Display(Model.Head)
     <script>(function (d) { d.className = "dyn " + d.className.substring(6, d.className.length); })(document.documentElement);</script>
 </head>
-<body>
-    <!--[if lt IE 7]>
-    <p class="chromeframe">@T("You are using an outdated browser"). @Html.Link(T("Upgrade your browser today"), "http://browsehappy.com/")
-        @T("or") @Html.Link(T("install Google Chrome Frame"), "http://www.google.com/chromeframe/?redirect=true") @T("to better experience this site").</p>
-    <![endif]-->
-    @* Layout (template) is in the Body zone @ the default position (nothing, zero, zilch) *@
-    @Display(Model.Body)
-
-</body>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">@T("You are using an outdated browser"). @Html.Link(T("Upgrade your browser today"), "http://browsehappy.com/")
+                @T("or") @Html.Link(T("install Google Chrome Frame"), "http://www.google.com/chromeframe/?redirect=true") @T("to better experience this site").</p>
+        <![endif]-->
+        @* Layout (template) is in the Body zone @ the default position (nothing, zero, zilch) *@
+        @Display(Model.Body)    
+    </body>
+    <script src="/Themes/tringtornadoes.Theme/Scripts/bootstrap.min.js"></script>   
 </html>
