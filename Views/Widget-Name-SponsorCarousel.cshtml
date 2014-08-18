@@ -1,0 +1,82 @@
+﻿@{
+    var path = Server.MapPath(string.Format("/media/default/carouselimages/sponsors"));
+    var files = new string[] { };
+    var fileNames = new List<string>();
+
+    if (Directory.Exists(path))
+    {
+        files = Directory.GetFiles(path);
+
+        for (var i = 0; i < files.Length; i++)
+        {
+            fileNames.Add(files[i].Substring(files[i].LastIndexOf(@"\", StringComparison.Ordinal) + 1));
+            files[i] =
+                string.Format("/media/default/carouselimages/sponsors/{0}", fileNames[i]);
+        }
+    }
+    var active = "active";
+}
+
+<div class="col-md-12">
+    <h2>Our Supporters</h2>
+    <div class="carousel slide" id="sponsorCarousel">
+        <div class="carousel-inner">
+            <div class="item">
+                @for (var i = 0; i < files.Length; i++)
+                {
+                    <div class="col-md-2">
+                        <a href="#"><img src="@files[i]" class="img-responsive"></a>
+                    </div>
+                }
+            </div>
+            <div class="item">
+                @for (var i = 0; i < files.Length; i++)
+                {
+                    <div class="col-md-2">
+                        <a href="#"><img src="@files[i]" class="img-responsive"></a>
+                    </div>
+                }
+            </div>
+            <div class="item active">
+                @for (var i = 0; i < files.Length; i++)
+                {
+                    <div class="col-md-2">
+                        <a href="#"><img src="@files[i]" class="img-responsive"></a>
+                    </div>
+                }
+            </div>
+
+        </div>
+        @*<a class="left carousel-control" href="#sponsorCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#sponsorCarousel" data-slide="next">
+                <span class="icon-next"></span>
+            </a>*@
+    </div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery(document).ready(function ($) {
+        $('#sponsorCarousel').carousel({
+            interval: 5000
+        });
+    });
+
+    $('#sponsorCarousel .carousel .item').each(function () {
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        if (next.next().length > 0) {
+            next.next().children(':first-child').clone().appendTo($(this));
+        }
+        else {
+            $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+        }
+    });
+    //]]>
+</script>

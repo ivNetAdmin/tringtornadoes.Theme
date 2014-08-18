@@ -1,0 +1,87 @@
+﻿@using Orchard.ContentManagement;
+@using Orchard.Widgets.Models;
+@{
+    var widgetPart = ((IContent)Model.ContentItem).As<WidgetPart>();
+    var tag = Tag(Model, "article");
+    
+    // get files from server
+    var url = Request.Url.ToString();
+    url = url.Substring(url.LastIndexOf("/", StringComparison.Ordinal) + 1);
+
+    var path = Server.MapPath(string.Format("/media/default/carouselimages/{0}", url));
+    var files = new string[] {};
+    var fileNames = new List<string>();
+    
+    if (Directory.Exists(path))
+    {
+        files = Directory.GetFiles(path);
+    }
+    
+    if (files.Length == 0)
+    {
+        url = "homepage";
+        path = Server.MapPath(string.Format("/media/default/carouselimages/{0}", url));        
+        files = Directory.GetFiles(path);
+    }
+
+    for(var i=0;i<files.Length;i++)
+    {
+        fileNames.Add(files[i].Substring(files[i].LastIndexOf(@"\", StringComparison.Ordinal) + 1));
+        files[i] =
+            string.Format("/media/default/carouselimages/{0}/{1}", url, fileNames[i]);
+    }
+
+    var active = "active";
+}
+@if (widgetPart.Zone == "Navigation" || widgetPart.Zone == "Header" || widgetPart.Name == "SponsorCarousel")
+{
+    if (widgetPart.Zone == "Header")
+    {
+        <!-- Header Carousel -->
+        <header id="headerCarousel" class="carousel slide">           
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                @for (var i = 0; i < files.Length; i++)
+                {
+                    <li data-target="#headerCarousel" data-slide-to="@i" class="@active"></li>
+                    active = string.Empty;
+                }
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @{ active = "active";}
+                @for (var i = 0; i < files.Length; i++)
+                {
+                    <div class="item @active">
+                        <div class="fill" style="background-image: url('@files[i]');"></div>
+                        <div class="carousel-caption">
+                            <h2>@fileNames[i].Substring(0, fileNames[i].IndexOf(".", StringComparison.Ordinal))</h2>
+                        </div>
+                    </div>
+                    active = string.Empty;
+                }
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#headerCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#headerCarousel" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+
+        </header>
+
+    }
+    else
+    {
+        @Display(Model.Child)
+    }
+}
+else
+{
+    @tag.StartElement
+    @Display(Model.Child)
+    @tag.EndElement
+}

@@ -1,0 +1,29 @@
+﻿@using Orchard.Fields.Fields
+
+<table>
+    @{
+        var eventDate = new DateTimeField();
+        var eventText = new HtmlString(string.Empty);
+
+        foreach (var shape in Model.Content.Items[1].Items)
+        {
+            <tr>@{
+                    var shapeContent = shape.Content;
+                    foreach (var item in shapeContent.Items)
+                    {
+                        switch ((string) item.Metadata.Type)
+                        {
+                            case "Fields_DateTime":
+                                eventDate = item.ContentField;
+                                break;
+                            case "Fields_Common_Text":
+                                eventText = item.Value;
+                                break;
+                        }
+                    }
+                }
+                <td>@eventDate.DateTime.ToShortDateString()</td><td>@eventText.ToHtmlString()</td>
+            </tr>
+        }
+    }
+</table>

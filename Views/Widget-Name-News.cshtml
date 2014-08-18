@@ -1,0 +1,20 @@
+﻿<ul>
+@{
+    foreach (var shape in Model.Content.Items[1].Items)
+    {
+        <li>
+            @{
+                var shapeContent = shape.Content;
+                foreach (var item in shapeContent.Items)
+                {
+                    if ( ((string) item.Metadata.Type) == "Parts_Common_Body_Summary")
+                    {
+                        @item.Html
+                    }
+                }
+            }
+            
+        </li>
+    }
+}
+</ul>

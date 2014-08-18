@@ -68,10 +68,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configure.txt" />
+    <Content Include="Content\Images\site-background.jpg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\carosel.js" />
     <Content Include="Scripts\html5shiv.js" />
+    <Content Include="Scripts\jquery-1.11.0.js" />
     <Content Include="Scripts\jquery-1.11.1.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Web.config" />
     <Content Include="Styles\.csscomb.json" />
     <Content Include="Styles\.csslintrc" />
     <Content Include="Styles\accordian.less" />
@@ -79,6 +85,7 @@
     <Content Include="Styles\alerts.less" />
     <Content Include="Styles\badges.less" />
     <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\bootstrap.css.map" />
     <Content Include="Styles\bootstrap.less" />
     <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Styles\breadcrumbs.less" />
@@ -143,6 +150,8 @@
     <Content Include="Styles\responsive-embed.less" />
     <Content Include="Styles\responsive-utilities.less" />
     <Content Include="Styles\scaffolding.less" />
+    <Content Include="Styles\site.css" />
+    <Content Include="Styles\site.less" />
     <Content Include="Styles\site.min.css" />
     <Content Include="Styles\tables.less" />
     <Content Include="Styles\theme.less" />
@@ -150,11 +159,12 @@
     <Content Include="Styles\tooltip.less" />
     <Content Include="Styles\type.less" />
     <Content Include="Styles\utilities.less" />
+    <Content Include="Styles\variables.css" />
     <Content Include="Styles\variables.less" />
+    <Content Include="Styles\variables.min.css" />
     <Content Include="Styles\Web.config" />
     <Content Include="Styles\wells.less" />
     <Content Include="Web.config" />
-    <Content Include="Scripts\Web.config" />
     <Content Include="Content\Web.config" />
     <Content Include="Theme.txt" />
     <Content Include="Theme.png" />
@@ -177,13 +187,29 @@
     <Content Include="Views\Document.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Styles\bootstrap.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Styles\site.less" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Parts.MenuWidget-Navigation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Widget.Wrapper.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Zone-Header.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\site.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Widget-Name-Event.cshtml" />
+    <Content Include="Views\Widget-Name-News.cshtml" />
+    <Content Include="Views\Widget-Name-SponsorCarousel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Zone-AfterContent.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

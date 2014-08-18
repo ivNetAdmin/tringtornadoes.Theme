@@ -8,6 +8,7 @@
 
     Style.Include("bootstrap.min.css").AtHead();
     Style.Include("modern-business.css");
+    Style.Include("site-min.css");
 
     /* Inserting some ad hoc shapes
     ***************************************************************/
@@ -28,44 +29,71 @@
     @Display(Model.Header)
 }
 
-@*<!-- Header Carousel -->
-<header id="myCarousel" class="carousel slide">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <div class="fill" style="background-image:url('/media/default/carousel%20images/homepage/football.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Football</h2>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('/media/default/carousel%20images/homepage/netball.jpg');"></div>
-            <div class="carousel-caption">
-                <h2>Netball</h2>
-            </div>
+<div class="container body-content">
+    <div class="row">
+        <div class="col-xs-12">
+            @if (Model.Content != null)
+            {
+                @Display(Model.Content)
+            }
         </div>
     </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="icon-next"></span>
-    </a>
-</header>*@
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                @Display(Model.Footer)
-            </div>
+    <div class="row">
+        <div class="col-xs-12">
+            @if (Model.AfterContent != null)
+            {
+                @Display(Model.AfterContent)
+            }
         </div>
+    </div>   
+    
+    @if (Model.TripelFirst != null || Model.TripelSecond != null || Model.TripelThird != null)
+    {
+        <div class="row triple-section">
+            @if (Model.TripelThird != null)
+            {
+            <div class="content-block tripel-first col-md-4">
+                @Display(Model.TripelFirst)
+            </div>
+            <div class="content-block col-md-4">
+                @Display(Model.TripelSecond)
+            </div>
+            <div class="content-block col-md-4">
+                @Display(Model.TripelThird)
+            </div>
+            }
+            else if (Model.TripelSecond != null)
+            {
+            <div class="content-block col-md-6">
+                @Display(Model.TripelFirst)
+            </div>
+            <div class="content-block tripel-first col-md-6">
+                @Display(Model.TripelSecond)
+            </div>
+            }
+            else
+            {
+            <div class="content-block tripel-first col-md-12">
+                @Display(Model.TripelFirst)
+            </div>
+            }
+            </div>
+            }
+        </div>
+        
+<div class="row">
+    <div class="col-xs-12">
+        @Display(Model.Footer)
     </div>
+</div>
+
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    $(function () {
+        ivNet.carosel.initialise();
+    })
+    //]]>
+</script>
+
