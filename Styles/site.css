@@ -15,12 +15,17 @@ div.triple-section div.content-block article {
   padding: 10px;
 }
 body {
-  background: #ffffff url("/Themes/tringtornadoes.Theme/Content/Images/site-background.jpg");
   background-repeat: repeat-x;
   height: 100%;
 }
 div.body-content {
-  background-color: #fff;
   height: 100%;
+}
+article.widget-News ul {
+  list-style: none;
+  padding: 0;
+}
+article.widget-News ul li {
+  border-bottom: thin solid #dddddd;
 }
 /*# sourceMappingURL=site.css.map */

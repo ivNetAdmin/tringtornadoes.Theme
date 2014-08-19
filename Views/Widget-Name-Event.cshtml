@@ -1,29 +1,36 @@
 ﻿@using Orchard.Fields.Fields
+<h3>Events</h3>
+<table class="table">
+    <thead>
+        <tr><th>Date</th><th>Event</th></tr>
+    </thead>
+    <tbody>
+        @{
+            var eventDate = new DateTimeField();
+            var eventText = new HtmlString(string.Empty);
 
-<table>
-    @{
-        var eventDate = new DateTimeField();
-        var eventText = new HtmlString(string.Empty);
-
-        foreach (var shape in Model.Content.Items[1].Items)
-        {
-            <tr>@{
-                    var shapeContent = shape.Content;
-                    foreach (var item in shapeContent.Items)
+            foreach (var shape in Model.Content.Items[1].Items)
+            {
+                <tr>
+                    @{
+                var shapeContent = shape.Content;
+                foreach (var item in shapeContent.Items)
+                {
+                    switch ((string)item.Metadata.Type)
                     {
-                        switch ((string) item.Metadata.Type)
-                        {
-                            case "Fields_DateTime":
-                                eventDate = item.ContentField;
-                                break;
-                            case "Fields_Common_Text":
-                                eventText = item.Value;
-                                break;
-                        }
+                        case "Fields_DateTime":
+                            eventDate = item.ContentField;
+                            break;
+                        case "Fields_Common_Text":
+                            eventText = item.Value;
+                            break;
                     }
                 }
-                <td>@eventDate.DateTime.ToShortDateString()</td><td>@eventText.ToHtmlString()</td>
+                }
+                <td>@eventDate.DateTime.ToShortDateString()</td>
+                <td>@eventText.ToHtmlString()</td>
             </tr>
+            }
         }
-    }
+    </tbody>
 </table>

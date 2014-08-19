@@ -1,30 +1,37 @@
 ﻿@using Orchard.ContentManagement;
 @using Orchard.Widgets.Models;
 @{
-    var widgetPart = ((IContent)Model.ContentItem).As<WidgetPart>();
-    var tag = Tag(Model, "article");
-    
+    var widgetPart = ((IContent)Model.ContentItem).As<WidgetPart>(); 
+}
+
+@if (widgetPart.Zone == "Navigation" || widgetPart.Zone == "Header" || widgetPart.Name == "SponsorCarousel")
+{
+
     // get files from server
     var url = Request.Url.ToString();
     url = url.Substring(url.LastIndexOf("/", StringComparison.Ordinal) + 1);
 
+    if (url.IndexOf("LogOn", System.StringComparison.Ordinal) != -1)
+    {
+        url = "homepage";
+    }
     var path = Server.MapPath(string.Format("/media/default/carouselimages/{0}", url));
-    var files = new string[] {};
+    var files = new string[] { };
     var fileNames = new List<string>();
-    
+
     if (Directory.Exists(path))
     {
         files = Directory.GetFiles(path);
     }
-    
+
     if (files.Length == 0)
     {
         url = "homepage";
-        path = Server.MapPath(string.Format("/media/default/carouselimages/{0}", url));        
+        path = Server.MapPath(string.Format("/media/default/carouselimages/{0}", url));
         files = Directory.GetFiles(path);
     }
 
-    for(var i=0;i<files.Length;i++)
+    for (var i = 0; i < files.Length; i++)
     {
         fileNames.Add(files[i].Substring(files[i].LastIndexOf(@"\", StringComparison.Ordinal) + 1));
         files[i] =
@@ -32,9 +39,7 @@
     }
 
     var active = "active";
-}
-@if (widgetPart.Zone == "Navigation" || widgetPart.Zone == "Header" || widgetPart.Name == "SponsorCarousel")
-{
+    
     if (widgetPart.Zone == "Header")
     {
         <!-- Header Carousel -->
@@ -81,6 +86,7 @@
 }
 else
 {
+    var tag = Tag(Model, "article");
     @tag.StartElement
     @Display(Model.Child)
     @tag.EndElement
