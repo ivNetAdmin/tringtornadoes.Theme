@@ -1,20 +1,42 @@
-﻿<ul>
-    @{
-    foreach (var shape in Model.Content.Items[1].Items)
-    {
-    <li>
+﻿<div class="container col-xs-12">
+   
         @{
-        var shapeContent = shape.Content;
-        foreach (var item in shapeContent.Items)
-        {
-        if ( ((string) item.Metadata.Type) == "Parts_Common_Body_Summary")
-        {
-        @item.Html
-        }
-        }
-        }
+            foreach (var shape in Model.Content.Items[1].Items)
+            {
+                var description = string.Empty;
+                var price = "£";
+                var imageUrl = string.Empty;
+                var imageTitle = string.Empty;
 
-    </li>
-    }
-    }
-</ul>
+                var shapeContent = shape.Content;
+                foreach (var item in shapeContent.Items)
+                {
+                    switch ((string)item.Metadata.Type)
+                    {
+                        case "Fields_Input":
+                            description = item.ContentField.Value;
+                            break;
+                        case "Fields_Numeric":
+                            if (item.ContentField.Name == "Price")
+                            {
+                                price = price + item.Value;
+                            }
+                            break;
+                        case "Fields_MediaLibraryPicker":
+                            imageUrl = item.ContentField.MediaParts[0].MediaUrl;
+                            imageTitle = item.ContentField.MediaParts[0].Title;
+                            break;
+                    }
+                }
+              
+                    <div class="product col-xs-2">
+                        <img src="@imageUrl" title="@imageTitle" alt="@imageTitle" class="img-responsive" />
+                        <div class="description">@description</div>
+                        <div class="price">@price</div>
+                    </div>
+               
+            }
+        }
+  
+</div>
+    
